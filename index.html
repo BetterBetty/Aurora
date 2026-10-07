@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#7b5bd6" />
+    <meta name="description" content="Aurora — 你是我的极光，黑暗中舞动的希望。" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Aurora · 恋爱小宇宙</title>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div class="brand"><span class="brand-mark">✦</span><span>Aurora</span></div>
+        <button class="icon-button" id="inviteButton" aria-label="邀请另一半">⌁</button>
+      </header>
+
+      <section class="screen active" id="todayScreen" aria-label="今日">
+        <div class="aurora-card">
+          <div class="stars">✦ · ˚ ✧ · ✦</div>
+          <p class="eyebrow">执意 & 柠檬的第 128 天</p>
+          <h1>今晚，也一起发光吧</h1>
+          <p class="subcopy">收下一点心意，留住一点想念。</p>
+          <div class="characters" aria-label="执意小猪和柠檬兔子">
+            <div class="character pig"><span>🐷</span><b>执意</b></div>
+            <div class="glow">✦</div>
+            <div class="character rabbit"><span>🐰</span><b>柠檬</b></div>
+          </div>
+        </div>
+
+        <section class="balance-grid" aria-label="恋爱积分">
+          <article class="balance-card coral"><span class="avatar pig-mini">🐷</span><div><small>执意的心意</small><strong id="pigPoints">86</strong><em>极光分</em></div></article>
+          <article class="balance-card mint"><span class="avatar rabbit-mini">🐰</span><div><small>柠檬的心意</small><strong id="rabbitPoints">64</strong><em>极光分</em></div></article>
+        </section>
+
+        <section class="section-block">
+          <div class="section-heading"><div><p class="eyebrow">今天的小宇宙</p><h2>等你们完成</h2></div><button class="text-button" data-go="interactionScreen">去互动</button></div>
+          <div class="today-list" id="todayList"></div>
+        </section>
+
+        <section class="memory-tease" id="treeTease">
+          <span class="tree-icon">🌳</span>
+          <div><p class="eyebrow">许愿树</p><strong><span id="fruitCount">3</span> 颗回忆果实正在闪光</strong></div>
+          <button class="round-arrow" data-go="wishScreen" aria-label="查看许愿树">→</button>
+        </section>
+      </section>
+
+      <section class="screen" id="wishScreen" aria-label="愿望">
+        <div class="page-title"><div><p class="eyebrow">把想念种下来</p><h1>愿望花园</h1></div><button class="add-button" id="newWishButton">＋</button></div>
+        <div class="segmented" role="tablist"><button class="selected" data-wish-tab="pool">愿望池</button><button data-wish-tab="tree">许愿树</button></div>
+        <div id="wishPool" class="wish-stack"></div>
+        <div id="wishTree" class="wish-tree hidden"></div>
+      </section>
+
+      <section class="screen" id="interactionScreen" aria-label="互动">
+        <div class="page-title"><div><p class="eyebrow">一点回应，一点靠近</p><h1>互动魔法</h1></div></div>
+        <div class="action-grid">
+          <button class="action-card pink" id="pointButton"><span>✨</span><b>送一颗极光分</b><small>夸夸 TA，留下原因</small></button>
+          <button class="action-card blue" id="taskButton"><span>✉️</span><b>发一个小任务</b><small>把期待变成小惊喜</small></button>
+          <button class="action-card peach" id="capsuleButton"><span>🎁</span><b>埋一颗惊喜胶囊</b><small>满足条件才能打开</small></button>
+          <button class="action-card lavender" data-go="courtScreen"><span>⚖️</span><b>恋爱小法庭</b><small>把小委屈好好说开</small></button>
+        </div>
+        <section class="section-block activity-section"><div class="section-heading"><div><p class="eyebrow">最近的极光</p><h2>你们的互动</h2></div></div><div id="activityList" class="activity-list"></div></section>
+      </section>
+
+      <section class="screen" id="courtScreen" aria-label="恋爱小法庭">
+        <button class="back-button" data-go="interactionScreen">← 返回互动</button>
+        <div class="court-hero"><span>⚖️</span><p class="eyebrow">AURORA 恋爱小法庭</p><h1>关于「忘记报备」的案件</h1><p>原告：柠檬兔子 · 被告：执意小猪</p></div>
+        <article class="court-card" id="courtCase">
+          <div class="court-label">柠檬的心声</div>
+          <p>“不是一定要时时刻刻回复，只是希望你忙起来前，也能让我知道呀。”</p>
+          <div class="requested"><span>本案请求</span><strong>扣除 4 极光分</strong></div>
+          <p class="repair-note">期待的修复：今晚用 30 秒语音和我说说今天发生的事。</p>
+          <div class="court-actions">
+            <button class="secondary-button" id="appealButton">我想申诉</button>
+            <button class="secondary-button" id="cuteButton">🥺 撒个娇</button>
+            <button class="primary-button" id="acceptCourtButton">接受并去修复</button>
+          </div>
+          <button class="withdraw-button" id="withdrawButton">原告撤诉</button>
+        </article>
+        <p class="court-footnote">案件不会自动消失。你们可以慢慢处理，也可以先暂停积分互动。</p>
+      </section>
+
+      <section class="screen" id="usScreen" aria-label="我们">
+        <div class="page-title"><div><p class="eyebrow">只属于你们的宇宙</p><h1>我们</h1></div><button class="icon-button" id="settingsButton">⚙</button></div>
+        <section class="couple-card"><div class="big-avatars"><span>🐷</span><span>🐰</span></div><h2>执意 & 柠檬</h2><p>第 128 天 · 距离下次见面还有 12 天</p><div class="milestone"><span>✦</span><b>已经一起收集 3 颗回忆果实</b></div></section>
+        <div class="setting-list">
+          <button id="inviteListButton"><span>✉️</span><b>邀请另一半</b><i>›</i></button>
+          <button id="renameButton"><span>✎</span><b>给执意和柠檬改名</b><i>›</i></button>
+          <button id="pauseButton"><span>⏸</span><b>暂停积分互动</b><i>›</i></button>
+          <button id="resetButton" class="danger"><span>↺</span><b>重置本地演示数据</b><i>›</i></button>
+        </div>
+      </section>
+
+      <nav class="tabbar" aria-label="主导航">
+        <button class="active" data-go="todayScreen"><span>☀</span><b>今日</b></button>
+        <button data-go="wishScreen"><span>☆</span><b>愿望</b></button>
+        <button data-go="interactionScreen"><span>✦</span><b>互动</b></button>
+        <button data-go="usScreen"><span>◌</span><b>我们</b></button>
+      </nav>
+    </main>
+
+    <div class="modal-backdrop hidden" id="modalBackdrop" role="presentation"></div>
+    <dialog id="modal" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="关闭">×</button>
+      <div id="modalContent"></div>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js');
+    </script>
+  </body>
+</html>

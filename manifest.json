@@ -1,0 +1,9 @@
+{
+  "name": "Aurora · 恋爱小宇宙",
+  "short_name": "Aurora",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#fffafd",
+  "theme_color": "#7b5bd6",
+  "description": "你是我的极光，黑暗中舞动的希望。"
+}
